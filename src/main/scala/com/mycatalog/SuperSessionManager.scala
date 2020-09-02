@@ -1,4 +1,4 @@
-package com.rami
+package com.mycatalog
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.internal.SQLConf
@@ -9,7 +9,7 @@ object SuperSessionManager {
   private val builder = {
 
     SparkSession.builder()
-      .config("spark.sql.catalog.RamiCatalog2", "com.rami.RamiCatalog2")
+      .config("spark.sql.catalog.MyCatalog", "com.mycatalog.MyCatalog")
 
   }
 

@@ -1,4 +1,4 @@
-package com.rami
+package com.mycatalog
 
 import java.net.URI
 import java.nio.file.Paths
@@ -18,10 +18,10 @@ import com.fasterxml.jackson.databind.ObjectMapper
 
 import scala.collection.JavaConverters._
 
- class RamiCatalog2() extends TableCatalog{
+ class MyCatalog() extends TableCatalog{
 
    var option:CaseInsensitiveStringMap=null
-   val ds=new RamiParquetDataSource
+   val ds=new MyParquetDataSource
    val hadoop = SparkSession.active.sparkContext.hadoopConfiguration
    val fs =FileSystem.get(new URI("hdfs://localhost:8020"),hadoop)
    val objectMapper = new ObjectMapper
@@ -73,5 +73,5 @@ import scala.collection.JavaConverters._
      option = options
    }
 
-   override def name(): String = "RamiCatalog2"
+   override def name(): String = "MyCatalog"
  }

@@ -1,4 +1,4 @@
-package com.rami
+package com.mycatalog
 
 import org.apache.spark.sql.connector.catalog.Table
 import org.apache.spark.sql.execution.datasources.FileFormat
@@ -9,7 +9,7 @@ import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.util.CaseInsensitiveStringMap
 import org.apache.spark.util.Utils
 
-class RamiParquetDataSource extends FileDataSourceV2 {
+class MyParquetDataSource extends FileDataSourceV2 {
 
   override def fallbackFileFormat: Class[_ <: FileFormat] = classOf[ParquetFileFormat]
 

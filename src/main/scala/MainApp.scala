@@ -1,7 +1,7 @@
 import java.io.File
 import java.sql.Timestamp
 
-import com.rami.SuperSessionManager
+import com.mycatalog.SuperSessionManager
 import org.apache.hadoop.conf.Configuration
 import org.apache.spark
 import org.apache.spark.sql.SparkSession
@@ -17,7 +17,7 @@ import scala.util.{Failure, Random, Success, Try}
 case class Persona (nombre:String, apellido:String,dni:Int,cat:String)
 
 
-object MainApp extends App {
+object MainApp {
 
 
 
@@ -29,7 +29,7 @@ object MainApp extends App {
       case e:IllegalInstantException => None
   }
   }
-  override def main(args: Array[String]): Unit = {
+   def main(args: Array[String]): Unit = {
 
     val people = new scala.collection.mutable.ArrayBuffer[Persona]()
 
@@ -55,10 +55,10 @@ object MainApp extends App {
 
     val df = session.createDataFrame(people).toDF()
 
-    val table = df.writeTo("RamiCatalog2.lucas4").partitionedBy(col("cat"))
+    val table = df.writeTo("MyCatalog.pruebaaa").partitionedBy(col("cat"))
     table.createOrReplace()
-    //session.sql("show tables from RamiCatalog2 ").show(false)
-    //session.sql("drop table RamiCatalog2.blabla ").show(false)
+    //session.sql("show tables from MyCatalog ").show(false)
+    //session.sql("drop table MyCatalog.blabla ").show(false)
 
 
 
